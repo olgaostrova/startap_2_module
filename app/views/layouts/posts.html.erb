@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarTap</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="posts_body">
+    <%= render "menubar" %>
+
+    <div class="main_img"></div>
+
+    <div class="posts_section">
+     <%= yield %>
+    <div class="posts_section">
+
+    <%= render "footer" %>
+
+  </body>
+</html>

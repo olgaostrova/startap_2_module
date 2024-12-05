@@ -1,0 +1,27 @@
+<p class="p2" style="color: green"><%= notice %></p>
+
+<% if can? :create, Post %>
+<%# if current_user && current_user.admin?%>
+<%# if can? :create, Post %>
+<p class="p2"><%= link_to "New post", new_post_path %></p>
+<% end%>
+
+<div class="tag_section">
+    <p class="p2"><%= link_to "All posts", posts_path %></p>
+    <% Post.tag_counts_on(:tags).each do |tag| %>
+    <p class="p2"><%= link_to tag.name, tagged_posts_path(tag.name) %></p>
+    <% end %>
+</div>
+
+<div id="posts">
+    
+    <div class="search">
+      <h3>Что вас интересует?</h3>
+      <button class="search_button"><p class="p2">Поиск</p></button> 
+    </div>
+
+    <br>
+    
+
+    <%= render collection: @posts, partial: "posts/post" %>
+</div>
